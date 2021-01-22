@@ -5,9 +5,12 @@ function Get-PulumiUser {
     )
     
     $Users = Invoke-PulumiApi -Url /api/orgs/$($Pulumi.Org)/members?type="backend" -Pulumi $Pulumi | % members
-
+    
     If($Username){
-        return $Users | Where-Object {$_.user.name -like "$Username*"}
+        $Username | ForEach-Object {
+            $U = $_
+            return $Users | Where-Object {$_.user.name -like "$U*"}
+        }    
     } 
     Else {
         return $Users
