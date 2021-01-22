@@ -72,6 +72,8 @@ Description = 'Manage the Pulumi console from PowerShell'
 FunctionsToExport = @(
     'Connect-Pulumi',
     'Get-PulumiProject',
+    'Get-PulumiTeam',
+    'Get-PulumiUser',
     'Invoke-PulumiApi',
     'Remove-PulumiStack',
     'Select-PulumiOrg'
