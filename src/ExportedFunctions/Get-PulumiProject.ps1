@@ -4,7 +4,7 @@ function Get-PulumiProject {
 
         $Pulumi = $Global:DefaultPulumi
     )
-    Invoke-PulumiApi -Url /api/console/orgs/$($Pulumi.Org)/repos -Pulumi $Pulumi | ForEach-Object {
+    Invoke-PulumiApi -Url /api/console/orgs/$($Pulumi.Org)/repos -Pulumi $Pulumi | % repositories  | ForEach-Object {
         $_.Projects | Where-Object {
             if($Name) {
                 $_.Name -like $Name
