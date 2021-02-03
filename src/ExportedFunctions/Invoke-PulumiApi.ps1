@@ -3,9 +3,9 @@ function Invoke-PulumiApi {
         [Parameter(Mandatory=$true)]
         $Url,
 
-        [ValidateSet("GET","DELETE")]
+        [ValidateSet("GET","DELETE","PATCH")]
         $Method = "GET",
-
+        $Body = @{},
         [ValidateNotNullOrEmpty()]
         $Pulumi = $Global:DefaultPulumi
     )
@@ -15,5 +15,5 @@ function Invoke-PulumiApi {
     }
     $RequestUrl = "$($Pulumi.PulumiUrl)$Url"
     Write-Debug $RequestUrl
-    Invoke-RestMethod -Method $Method -Uri $RequestUrl -ContentType "application/json" -Headers $Headers | ForEach-Object {$_}
+    Invoke-RestMethod -Method $Method -Uri $RequestUrl -ContentType "application/json" -Body $Body -Headers $Headers | ForEach-Object {$_}
 }

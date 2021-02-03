@@ -70,12 +70,14 @@ Description = 'Manage the Pulumi console from PowerShell'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
+    'Add-PulumiTeamStack',
     'Connect-Pulumi',
     'Get-PulumiProject',
     'Get-PulumiTeam',
     'Get-PulumiUser',
     'Invoke-PulumiApi',
     'Remove-PulumiStack',
+    'Remove-PulumiTeamStack',
     'Select-PulumiOrg'
 )
 
