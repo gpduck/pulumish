@@ -13,19 +13,20 @@ function Add-PulumiTeam {
 
         $Pulumi = $Global:DefaultPulumi
     )
-        $Body = @{   
-            name = $Name;
-        }
+    $Body = @{   
+        name = $Name;
+    }
 
-        if($Description){
-            $Body["description"] = $Description;
-        }
-        
-        if($DisplayName){
-            $Body["displayName"] = $DisplayName;
-        } 
+    if($Description){
+        $Body["description"] = $Description;
+    }
+    
+    if($DisplayName){
+        $Body["displayName"] = $DisplayName;
+    } 
 
-        $Body = $Body | ConvertTo-Json
+    $Body = $Body | ConvertTo-Json
 
-        Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$($TeamType.toLower())" -Pulumi $Pulumi -Method "POST" -Body $Body
+    Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$($TeamType.toLower())" -Pulumi $Pulumi -Method "POST" -Body $Body
+    
 }

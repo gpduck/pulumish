@@ -12,14 +12,18 @@ function Add-PulumiTeam {
     
     $Team | ForEach-Object {
         $ThisTeam = $_
+        
         if($ThisTeam -is [string]){
             $TeamName = $ThisTeam    
-        }elseif($TeamName.name) {
+        }
+        elseif($TeamName.name) {
             $TeamName = $ThisTeam.name
-        } else {
+        }
+        else {
             Write-Error "Unkown paremeter value specified for Team."
         }
 
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$TeamName" -Pulumi $Pulumi -Method "DELETE"
-    }       
+    }
+     
 }

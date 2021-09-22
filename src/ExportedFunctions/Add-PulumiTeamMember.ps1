@@ -12,9 +12,11 @@ function Add-PulumiTeamMember {
 
     if($Team -is [string]){
         $TeamName = $Team    
-    }elseif($TeamName.name) {
+    }
+    ElseIf($TeamName.name) {
         $TeamName = $Team.name
-    } else {
+    }
+    Else {
         Write-Error "Unkown paremeter value specified for Team."
     }
 
@@ -27,4 +29,5 @@ function Add-PulumiTeamMember {
 
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$TeamName" -Pulumi $Pulumi -Method "PATCH" -Body $Body
     }
+    
 }

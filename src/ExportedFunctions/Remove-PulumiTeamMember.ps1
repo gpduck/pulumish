@@ -12,9 +12,11 @@ function Remove-PulumiTeamMember {
 
     if($Team -is [string]){
         $TeamName = $Team    
-    }elseif($TeamName.name) {
+    }
+    elseif($TeamName.name) {
         $TeamName = $Team.name
-    } else {
+    }
+    else {
         Write-Error "Unkown paremeter value specified for Team."
     }
 
@@ -27,4 +29,5 @@ function Remove-PulumiTeamMember {
 
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$TeamName" -Pulumi $Pulumi -Method "PATCH" -Body $Body
     }
+
 }

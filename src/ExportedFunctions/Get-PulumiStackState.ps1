@@ -31,4 +31,5 @@ function Get-PulumiStackState {
     $RequestUris | ForEach-Object {
         Invoke-PulumiApi -Url $_
     }
+    
 }

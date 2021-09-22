@@ -15,5 +15,7 @@ function Add-PulumiOrgMember {
         } | ConvertTo-Json
 
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/members/$ThisUsername" -Pulumi $Pulumi -Method "POST" -Body $Body
+        
     }
+
 }

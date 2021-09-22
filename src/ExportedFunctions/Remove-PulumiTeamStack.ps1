@@ -6,6 +6,7 @@ function Remove-PulumiTeamStack {
         $Project,
         $Pulumi = $Global:DefaultPulumi
     )
+    
     $Stack | ForEach-Object {
         $ThisStack = $_
         $Body = @{   
@@ -17,4 +18,5 @@ function Remove-PulumiTeamStack {
     
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$Team" -Pulumi $Pulumi -Method "PATCH" -Body $Body
     }
+
 }

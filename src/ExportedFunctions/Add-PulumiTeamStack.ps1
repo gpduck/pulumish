@@ -8,11 +8,13 @@ function Add-PulumiTeamStack {
         $Permission="READ",
         $Pulumi = $Global:DefaultPulumi
     )
+    
     $Permissions = @{
         "READ" = 101;
         "WRITE" = 102;
         "ADMIN" = 103;
     }
+
     $Stack | ForEach-Object {
         $ThisStack = $_
         $Body = @{   
@@ -25,4 +27,5 @@ function Add-PulumiTeamStack {
     
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/teams/$Team" -Pulumi $Pulumi -Method "PATCH" -Body $Body
     }
+
 }
