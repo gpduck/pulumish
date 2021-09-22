@@ -2,13 +2,13 @@ function Connect-Pulumi {
     param(
         [Parameter(Mandatory=$true)]
         $Org,
-
+        $CredPath = (Join-Path $Home ".pulumi/credentials.json"),
         $Url = "https://api.pulumi.com",
 
         [Switch]$NotDefault
     )
     
-    $CredPath = Join-Path $Home ".pulumi/credentials.json"
+    
     
     if(!(Test-Path $CredPath)) {
         Write-Error "Please log-in to pulumi using 'pulumi login' and then re-run Connect-Pulumi."
