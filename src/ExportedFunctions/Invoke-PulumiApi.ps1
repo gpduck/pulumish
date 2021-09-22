@@ -11,7 +11,7 @@ function Invoke-PulumiApi {
     )
     $Headers = @{
         Authorization = "token $($Pulumi.Token)"
-        "Accept"="application/vnd.pulumi+3"
+        "Accept"="application/vnd.pulumi+8"
     }
     $RequestUrl = "$($Pulumi.PulumiUrl)$Url"
     Write-Debug $RequestUrl
