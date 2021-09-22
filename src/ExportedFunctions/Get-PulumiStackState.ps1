@@ -1,19 +1,26 @@
-function Get-PulumiStack {
+function Get-PulumiStackState {
     [cmdletbinding()]
     param(
+        [Parameter(Mandatory=$true)]
         [string[]]$Project,
+        
+        [Parameter(Mandatory=$true)]
+        [string[]]$StackName,
+
         $Pulumi = $Global:DefaultPulumi
     )
     
     # Lists all stacks available to the user
-    $BaseURI = "/api/user/stacks?organization=$($Pulumi.Org)"
+    $BaseURI = "/api/stacks/$($Pulumi.Org)"
 
     $RequestUris = [System.Collections.ArrayList]@()
     
-    if($Project){
-        $Project | ForEach-Object {
+    $Project | ForEach-Object {
             $ThisProject = $_
-            $RequestUris.add($BaseURI + "&project=$ThisProject") > $null
+            $StackName | ForEach-Object {
+                $ThisStackName = $_
+                $RequestUris.add($BaseURI + "/$ThisProject/$ThisStackName/export") > $null
+            }
         }
     }
     else{

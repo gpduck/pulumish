@@ -77,6 +77,7 @@ FunctionsToExport = @(
     'Get-PulumiProject',
     'Get-PulumiTeam',
     'Get-PulumiStack',
+    'Get-PulumiStackState',
     'Get-PulumiUser',
     'Invoke-PulumiApi',
     'Remove-PulumiStack',
