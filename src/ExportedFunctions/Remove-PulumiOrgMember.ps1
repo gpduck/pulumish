@@ -12,4 +12,5 @@ function Remove-PulumiOrgMember {
 
         Invoke-PulumiApi -Url "/api/orgs/$($Pulumi.org)/members/$ThisUsername" -Pulumi $Pulumi -Method "DELETE" 
     }
+
 }
