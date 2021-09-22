@@ -16,16 +16,11 @@ function Get-PulumiStackState {
     $RequestUris = [System.Collections.ArrayList]@()
     
     $Project | ForEach-Object {
-            $ThisProject = $_
-            $StackName | ForEach-Object {
-                $ThisStackName = $_
-                $RequestUris.add($BaseURI + "/$ThisProject/$ThisStackName/export") > $null
-            }
+        $ThisProject = $_
+        $StackName | ForEach-Object {
+            $ThisStackName = $_
+            $RequestUris.add($BaseURI + "/$ThisProject/$ThisStackName/export") > $null
         }
-    }
-    else{
-        Write-Verbose "No Project specified. Retrieving all projects."
-        $RequestUris.add($BaseURI) > $null
     }
 
     $RequestUris | ForEach-Object {
