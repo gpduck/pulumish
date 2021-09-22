@@ -4,5 +4,7 @@ function Select-PulumiOrg {
 
         $Pulumi = $Global:DefaultPulumi
     )
+    
     $Pulumi.Org = $Name
+
 }

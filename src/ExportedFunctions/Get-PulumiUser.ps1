@@ -1,6 +1,7 @@
 function Get-PulumiUser {
     param(
         [string[]]$Username,
+
         $Pulumi = $Global:DefaultPulumi
     )
     
@@ -15,4 +16,5 @@ function Get-PulumiUser {
     Else {
         return $Users
     }
+    
 }
