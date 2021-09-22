@@ -3,7 +3,7 @@ function Invoke-PulumiApi {
         [Parameter(Mandatory=$true)]
         $Url,
 
-        [ValidateSet("GET","DELETE","PATCH")]
+        [ValidateSet("GET","DELETE","PATCH","POST")]
         $Method = "GET",
         $Body = @{},
         [ValidateNotNullOrEmpty()]
