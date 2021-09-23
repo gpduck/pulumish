@@ -1,3 +1,26 @@
+<#
+.SYNOPSIS
+Removes pulumi stacks from an org.
+
+.DESCRIPTION
+Removes pulumi stacks from an org.
+
+.PARAMETER Stack
+The Stack Object to remove from the org.
+
+Must be an object returned by the 'Get-PulumiStack' function.
+
+.PARAMETER Force
+Forces the removal of the stack.
+
+.PARAMETER Pulumi
+The Pulumi connection object. Defaults to $Global:DefaultPulumi.
+
+.EXAMPLE
+Get-PulumiStack -Project 'DevOps' | Remove-PulumiStack -Force
+
+Removes all stacks from project 'DevOps'.
+#>
 function Remove-PulumiStack {
     [CmdletBinding(SupportsShouldProcess=$true,ConfirmImpact="High")]
     param(
