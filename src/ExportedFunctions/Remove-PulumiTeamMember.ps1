@@ -1,3 +1,26 @@
+<#
+.SYNOPSIS
+Removes a new team member from a pulumi team.
+
+.DESCRIPTION
+Removes a new team member from a pulumi team.
+
+.PARAMETER Team
+The team to filter by.
+
+This can be either the name or team object returned from Get-PulumiTeam.
+
+.PARAMETER Username
+A string array of usernames to remove to the team.
+
+.PARAMETER Pulumi
+The Pulumi connection object. Defaults to $Global:DefaultPulumi.
+
+.EXAMPLE
+Remove-PulumiTeamMember -Team DevOps -Username tomjones -pulumi $pulumi
+
+Removes user 'tomjones' from the team 'DevOps'.
+#>
 function Remove-PulumiTeamMember {
     [cmdletbinding()]
     param(
